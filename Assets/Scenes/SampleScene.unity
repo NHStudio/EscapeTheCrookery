@@ -123,6 +123,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &77034351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7727609721711553923, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
+  m_PrefabInstance: {fileID: 1548513229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &77034360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77034351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a62838d725328d36bd3fbca2e8bef48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 9190931468412574717, guid: 9ba6fd8b8ece91f18a7c5a014d00829a, type: 3}
+  shootingRate: 0.2
+  projSpawnOffset: 0.5
+  projSpeed: 5
+  sideProjOffset: 0.5
+  sideProjAngle: 30
 --- !u!1 &128191687
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,8 +637,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2208051040280037313, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208051040280037313, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 801c8f716f083efbca8d591401d9302d, type: 2}
+    - target: {fileID: 2208051040280037313, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
       propertyPath: m_LinearDrag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2208051040280037313, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2208051040280037313, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
       propertyPath: m_Constraints
@@ -679,7 +714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8667806725426282067, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
       propertyPath: speed
-      value: 300
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8667806725426282067, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
       propertyPath: jumpForce
@@ -697,7 +732,12 @@ PrefabInstance:
       propertyPath: groundMask.m_Bits
       value: 64
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8667806725426282067, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
+      propertyPath: jumpMovementMultiplier
+      value: 0.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5438990768728129010, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
 --- !u!1 &1688059840
 GameObject:
