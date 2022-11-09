@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8667806725426282067}
   - component: {fileID: 2208051040280037313}
   - component: {fileID: 5678845142270460126}
+  - component: {fileID: 5438990768728129010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -121,10 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd85bd2cbc4fd4d6788bcb1878c29f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 1000
   jumpForce: 200
-  groundCheckDistance: 0.05
-  groundCheckRadius: 0.21
+  groundCheckBox: {x: 0.5, y: 0.05}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -176,6 +176,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.24}
   m_EdgeRadius: 0
+--- !u!114 &5438990768728129010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727609721711553923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb42697081b46ff8dbb03f6f043472ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 9190931468412574717, guid: 9ba6fd8b8ece91f18a7c5a014d00829a, type: 3}
+  shootingRate: 0.1
+  projSpawnOffset: 0.5
+  projSpeed: 5
 --- !u!1 &8239325037408565424
 GameObject:
   m_ObjectHideFlags: 0
