@@ -34,16 +34,23 @@ public class PlayerController : MonoBehaviour
 
     private IWeapon _currWeapon;
 
+    private PlayerParameters _playerParameters;
+
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _currWeapon = GetComponent(typeof(IWeapon)) as IWeapon;
+        _playerParameters = GetComponent<PlayerParameters>();
     }
 
     private void Update()
     {
+        if (_playerParameters.IsDead())
+        {
+            return;
+        }
         if (_currWeapon is not null)
         {
             if (Input.GetButtonDown("Fire1"))
@@ -91,4 +98,5 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool(OnGround, _isGrounded);
         _spriteRenderer.flipX = Facing == PlayerFacing.Left;
     }
+
 }

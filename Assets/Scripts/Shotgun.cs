@@ -35,6 +35,7 @@ public class Shotgun : BaseShootingWeapon
             projComponents[i] = projectile.GetComponent<Projectile>();
             
             projComponents[i].speed = projSpeed;
+            projComponents[i].HittingPlayer(false);
 
             Vector3 direction = angles[i];
             if (leftShoot)

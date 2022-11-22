@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 2208051040280037313}
   - component: {fileID: 5678845142270460126}
   - component: {fileID: 5438990768728129010}
+  - component: {fileID: 1951460172771238602}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   jumpForce: 200
+  jumpMovementMultiplier: 0.7
   groundCheckBox: {x: 0.5, y: 0.05}
   groundMask:
     serializedVersion: 2
@@ -192,6 +194,20 @@ MonoBehaviour:
   shootingRate: 0.1
   projSpawnOffset: 0.5
   projSpeed: 5
+--- !u!114 &1951460172771238602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727609721711553923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbe8130e6b3ba4489f24dae226af72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 0
+  hitPoints: 0
 --- !u!1 &8239325037408565424
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,6 +39,7 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
         GameObject projectile = Instantiate(projectileType, projSpawnPos, Quaternion.identity);
         Projectile projComponent = projectile.GetComponent<Projectile>();
         
+        projComponent.HittingPlayer(false);
         projComponent.direction = leftShoot ? Vector3.left : Vector3.right;
         projComponent.speed = projSpeed;
     }
