@@ -9,7 +9,7 @@ public class Shotgun : BaseShootingWeapon
     
     protected override void Fire()
     {
-        bool leftShoot = _playerController.Facing == PlayerController.PlayerFacing.Left;
+        bool leftShoot = _actorController.Facing == BaseActorController.ActorFacing.Left;
 
         Vector3 offset = new Vector3(leftShoot ? -projSpawnOffset : projSpawnOffset, 0.0f, 0.0f);
         Vector3 projSpawnPos = transform.position + offset;

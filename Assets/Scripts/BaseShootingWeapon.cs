@@ -12,11 +12,11 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
 
     protected float _nextShootTime = 0.0f;
 
-    protected PlayerController _playerController;
+    protected BaseActorController _actorController;
 
     void Start()
     {
-        _playerController = GetComponent<PlayerController>();
+        _actorController = GetComponent(typeof(BaseActorController)) as BaseActorController;
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
 
     protected virtual void Fire()
     {
-        bool leftShoot = _playerController.Facing == PlayerController.PlayerFacing.Left;
+        bool leftShoot = _actorController.Facing == BaseActorController.ActorFacing.Left;
         
         Vector3 offset = new Vector3(leftShoot ? -projSpawnOffset : projSpawnOffset, 0.0f, 0.0f);
         Vector3 projSpawnPos = transform.position + offset;
