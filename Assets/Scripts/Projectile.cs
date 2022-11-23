@@ -8,28 +8,16 @@ public class Projectile : MonoBehaviour
 {
     public Vector3 direction;
     public float speed = 1.0f;
-    private bool _hitsPlayer;
-    private int _damage;
+    public int damage = 1;
+    public GameObject owner;
     public float lifeSpan = 3.0f;
 
-    public void HittingPlayer(bool hitsPlayer)
-    {
-        _hitsPlayer = hitsPlayer;
-        if (_hitsPlayer)
-        {
-            _damage =
-                GameObject.FindGameObjectWithTag("Enemy").GetComponent<BaseEnemyClass>().attackDamage;
-        }
-        else
-        {
-            _damage = 
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerParameters>().attackDamage;
-        }
-    }
+    private Collider2D _collider2D;
 
     public void Start()
     {
         Destroy(gameObject, lifeSpan);
+        _collider2D = gameObject.GetComponent<Collider2D>();
     }
     
     public void Update()
@@ -41,30 +29,24 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         bool isPlayer = col.gameObject.CompareTag("Player");
-        if (_hitsPlayer == isPlayer)
+        bool isEnemy = col.gameObject.CompareTag("Enemy");
+
+        if (!(isPlayer || isEnemy))
         {
-            if (isPlayer)
-            {
-                PlayerParameters playerParameters = col.gameObject.GetComponent<PlayerParameters>();
-                playerParameters.TakeDamage(_damage);
-                if (playerParameters.IsDead())
-                {
-                    Destroy(col.gameObject);
-                }
-            } else
-            {
-                BaseEnemyClass enemy = col.gameObject.GetComponent<BaseEnemyClass>();
-                enemy.TakeDamage(_damage);
-                if (enemy.IsDead())
-                {
-                    Destroy(col.gameObject);
-                }
-            }
+            Destroy(gameObject);
+            return;
+        }
+
+        if (col.gameObject != owner)
+        {
+            BaseActorParameters actorParameters = col.gameObject.GetComponent(typeof(BaseActorParameters)) as BaseActorParameters;
+            actorParameters.TakeDamage(damage);
             Destroy(gameObject);
         }
         else
         {
-            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), col.collider);
+            Physics2D.IgnoreCollision(_collider2D, col.collider);
         }
     }
 }
+

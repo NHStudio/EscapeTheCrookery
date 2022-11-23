@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 8667806725426282067}
   - component: {fileID: 2208051040280037313}
   - component: {fileID: 5678845142270460126}
-  - component: {fileID: 5438990768728129010}
   - component: {fileID: 1951460172771238602}
+  - component: {fileID: 3913221535787252886}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -123,10 +123,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd85bd2cbc4fd4d6788bcb1878c29f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
-  jumpForce: 200
-  jumpMovementMultiplier: 0.7
-  groundCheckBox: {x: 0.5, y: 0.05}
+  speed: 800
+  jumpForce: 500
+  jumpMovementMultiplier: 0.4
+  groundCheckBox: {x: 1, y: 0.05}
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -144,14 +144,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 100
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 801c8f716f083efbca8d591401d9302d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5678845142270460126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,22 +178,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.24}
   m_EdgeRadius: 0
---- !u!114 &5438990768728129010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727609721711553923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb42697081b46ff8dbb03f6f043472ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectileType: {fileID: 1937123715403033525, guid: 6b6aac3de9f7dfd489f63fc5d7e18df5, type: 3}
-  shootingRate: 0.1
-  projSpawnOffset: 0.5
-  projSpeed: 5
 --- !u!114 &1951460172771238602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +190,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbe8130e6b3ba4489f24dae226af72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 0
-  hitPoints: 0
+  attackDamage: 5
+  hitPoints: 10
+--- !u!114 &3913221535787252886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727609721711553923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a62838d725328d36bd3fbca2e8bef48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 1937123715403033525, guid: 6b6aac3de9f7dfd489f63fc5d7e18df5, type: 3}
+  shootingRate: 0.2
+  projSpawnOffset: 0.5
+  projSpeed: 5
+  sideProjOffset: 0.5
+  sideProjAngle: 30
 --- !u!1 &8239325037408565424
 GameObject:
   m_ObjectHideFlags: 0

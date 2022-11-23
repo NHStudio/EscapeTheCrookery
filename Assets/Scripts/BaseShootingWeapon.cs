@@ -13,10 +13,12 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
     protected float _nextShootTime = 0.0f;
 
     protected BaseActorController _actorController;
+    protected BaseActorParameters _actorParameters;
 
     void Start()
     {
         _actorController = GetComponent(typeof(BaseActorController)) as BaseActorController;
+        _actorParameters = GetComponent(typeof(BaseActorParameters)) as BaseActorParameters;
     }
 
     // Update is called once per frame
@@ -38,8 +40,9 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
 
         GameObject projectile = Instantiate(projectileType, projSpawnPos, Quaternion.identity);
         Projectile projComponent = projectile.GetComponent<Projectile>();
-        
-        projComponent.HittingPlayer(false);
+
+        projComponent.owner = gameObject;
+        projComponent.damage = _actorParameters.attackDamage;
         projComponent.direction = leftShoot ? Vector3.left : Vector3.right;
         projComponent.speed = projSpeed;
     }

@@ -35,7 +35,6 @@ public class Shotgun : BaseShootingWeapon
             projComponents[i] = projectile.GetComponent<Projectile>();
             
             projComponents[i].speed = projSpeed;
-            projComponents[i].HittingPlayer(false);
 
             Vector3 direction = angles[i];
             if (leftShoot)
@@ -43,7 +42,9 @@ public class Shotgun : BaseShootingWeapon
                 direction.x = -direction.x;
             }
 
+            projComponents[i].owner = gameObject;
             projComponents[i].direction = direction;
+            projComponents[i].damage = _actorParameters.attackDamage;
         }
     }
 }

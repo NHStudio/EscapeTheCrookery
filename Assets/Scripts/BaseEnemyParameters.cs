@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-public class PlayerParameters : BaseActorParameters
+public class BaseEnemyParameters : BaseActorParameters
 {
 }

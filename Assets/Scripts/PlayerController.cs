@@ -9,17 +9,17 @@ public class PlayerController : GroundedActorController
     private float _turnSmoothVelocity;
     private Vector3 _velocity;
 
-    private PlayerParameters _playerParameters;
+    public PlayerParameters Parameters { get; private set; }
 
     protected new void Start()
     {
         base.Start();
-        _playerParameters = GetComponent<PlayerParameters>();
+        Parameters = GetComponent<PlayerParameters>();
     }
 
     protected new void Update()
     {
-        if (_playerParameters.IsDead())
+        if (Parameters.Dead)
         {
             return;
         }
@@ -42,6 +42,11 @@ public class PlayerController : GroundedActorController
 
     protected new void FixedUpdate()
     {
+        if (Parameters.Dead)
+        {
+            return;
+        }
+        
         base.FixedUpdate();
         
         var x = Input.GetAxisRaw("Horizontal");

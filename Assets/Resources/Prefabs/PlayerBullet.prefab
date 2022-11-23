@@ -126,3 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   speed: 1
+  damage: 1
+  playerBullet: 1
+  lifeSpan: 3
