@@ -1,5 +1,5 @@
 
-public class DropAmountUP : UpgradeImpl
+public class DropAmountUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
@@ -9,5 +9,10 @@ public class DropAmountUP : UpgradeImpl
     public override int GetMaxLevel()
     {
         return 5;
+    }
+    
+    public override int GetUpgradeCost()
+    {
+        return 5 + _level * _level;
     }
 }

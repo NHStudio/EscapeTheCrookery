@@ -1,5 +1,5 @@
 
-public class LuckUP : UpgradeImpl
+public class LuckUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
@@ -9,5 +9,10 @@ public class LuckUP : UpgradeImpl
     public override int GetMaxLevel()
     {
         return 50;
+    }
+    
+    public override int GetUpgradeCost()
+    {
+        return 5 + _level * _level;
     }
 }

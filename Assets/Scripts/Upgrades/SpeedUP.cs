@@ -1,5 +1,5 @@
 
-public class SpeedUP : UpgradeImpl
+public class SpeedUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats stats)
     {
@@ -9,5 +9,10 @@ public class SpeedUP : UpgradeImpl
     public override int GetMaxLevel()
     {
         return 6;
+    }
+    
+    public override int GetUpgradeCost()
+    {
+        return 5 + _level * _level;
     }
 }

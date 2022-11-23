@@ -1,5 +1,5 @@
 
-public class HealthUp : UpgradeImpl
+public class HealthUp : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats stats)
     {
@@ -9,5 +9,10 @@ public class HealthUp : UpgradeImpl
     public override int GetMaxLevel()
     {
         return 10;
+    }
+    
+    public override int GetUpgradeCost()
+    {
+        return 5 + _level * _level;
     }
 }

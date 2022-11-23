@@ -1,5 +1,5 @@
 
-public class FireRateUP : UpgradeImpl
+public class FireRateUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
@@ -9,5 +9,10 @@ public class FireRateUP : UpgradeImpl
     public override int GetMaxLevel()
     {
         return 6;
+    }
+    
+    public override int GetUpgradeCost()
+    {
+        return 5 + _level * _level;
     }
 }

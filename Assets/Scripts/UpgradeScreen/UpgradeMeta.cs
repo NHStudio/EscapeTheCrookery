@@ -16,19 +16,18 @@ public class UpgradeMeta
 {
     public UpgradeType type;
     public string name;
-    public Type upgradeClass;
+    public Func<UpgradeBase> factory;
 
-    public static UpgradeMeta[] upgrades = new UpgradeMeta[]
-    {
-        new UpgradeMeta { type = UpgradeType.Damage, name = "Damage", upgradeClass = typeof(DmgUP) },
-        new UpgradeMeta { type = UpgradeType.DropAmount, name = "Drop Amount", upgradeClass = typeof(DropAmountUP) },
-        new UpgradeMeta { type = UpgradeType.FireRate, name = "Fire Rate", upgradeClass = typeof(FireRateUP) },
-        new UpgradeMeta { type = UpgradeType.Health, name = "Health", upgradeClass = typeof(HealthUp) },
-        new UpgradeMeta { type = UpgradeType.AidKitHeal, name = "Aid Kit Heal", upgradeClass = typeof(MedicUP) },
-        new UpgradeMeta { type = UpgradeType.Luck, name = "Luck", upgradeClass = typeof(LuckUP) }
+    public static UpgradeMeta[] upgrades = {
+        new() { type = UpgradeType.Damage, name = "Damage", factory = () => new DmgUP() },
+        new() { type = UpgradeType.DropAmount, name = "Drop Amount", factory = () => new DropAmountUP() },
+        new() { type = UpgradeType.FireRate, name = "Fire Rate", factory = () => new FireRateUP() },
+        new() { type = UpgradeType.Health, name = "Health", factory = () => new HealthUp() },
+        new() { type = UpgradeType.AidKitHeal, name = "Aid Kit Heal", factory = () => new MedicUP() },
+        new() { type = UpgradeType.Luck, name = "Luck", factory = () => new LuckUP() }
     };
 
-    public static UpgradeMeta GetUpgradeWithType(UpgradeType type)
+    public static UpgradeMeta GetUpgradeMetaWithType(UpgradeType type)
     {
         return upgrades.FirstOrDefault(t => t.type == type);
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Wallet {
     public static Wallet Instance = new Wallet();
-    private int _money = 10;
+    private int _money = 100;
     public event Action<int> OnMoneyChanged;
 
     public int Count() {

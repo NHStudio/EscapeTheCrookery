@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 public class PlayerStats
 {
@@ -18,22 +20,66 @@ public class PlayerStatsManager
 {
     public static PlayerStatsManager Instance = new();
     private PlayerStats stats = new();
-    private Dictionary<Type, UpgradeImpl> upgrades;
-    
-    private bool AddUpgrade<T>() where T : UpgradeImpl, new()
+    private Dictionary<UpgradeMeta, UpgradeBase> upgrades = new();
+
+    public PlayerStatsManager()
     {
-        if (!upgrades.ContainsKey(typeof(T))) {
-            upgrades.Add(typeof(T), new T());
+        foreach(var upgrade in UpgradeMeta.upgrades)
+        {
+            upgrades.Add(upgrade, upgrade.factory());
         }
-        
-        var upgrade = upgrades[typeof(T)];
+    }
+
+    public bool IsMaxedOut(UpgradeMeta type)
+    {
+        if (!upgrades.ContainsKey(type))
+        {
+            return false;
+        }
+
+        var upgrade = upgrades[type];
+        return upgrade.GetCurrentLevel() >= upgrade.GetMaxLevel();
+    }
+
+    public bool AddUpgrade(UpgradeMeta type)
+    {
+        var upgrade = upgrades[type];
         if (upgrade.GetCurrentLevel() >= upgrade.GetMaxLevel()) return false;
         upgrade.AddLevel();
+        UpdateStats();
         return true;
+    }
+
+    public void UpdateStats()
+    {
+        var newStats = new PlayerStats();
+        
+        foreach (var upgrade in upgrades.Values)
+        {
+            upgrade.ApplyUpgrade(newStats);
+        }
+        
+        stats = newStats;
+    }
+
+    public UpgradeBase GetUpgrade(UpgradeMeta type)
+    {
+        return upgrades.ContainsKey(type) ? upgrades[type] : null;
+    }
+
+    public int GetUpgradeCost(UpgradeMeta upgradeType)
+    {
+        if (IsMaxedOut(upgradeType))
+        {
+            return int.MaxValue;
+        }
+        
+        var upgrade = GetUpgrade(upgradeType);
+        return upgrade?.GetUpgradeCost() ?? int.MaxValue;
     }
 }
 
-public abstract class UpgradeImpl
+public abstract class UpgradeBase
 {
     protected int _level = 0;
 
@@ -46,7 +92,8 @@ public abstract class UpgradeImpl
     {
         _level++;
     }
-    
+
     public abstract void ApplyUpgrade(PlayerStats stats);
     public abstract int GetMaxLevel();
+    public abstract int GetUpgradeCost();
 }
