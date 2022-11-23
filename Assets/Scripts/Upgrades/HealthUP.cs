@@ -1,13 +1,13 @@
 
-public class MedicUP : UpgradeImpl
+public class HealthUp : UpgradeImpl
 {
     public override void ApplyUpgrade(PlayerStats stats)
     {
-        stats.medicBaseHeal += _level;
+        stats.playerBaseHealth += _level;
     }
 
     public override int GetMaxLevel()
     {
-        return 7;
+        return 10;
     }
 }

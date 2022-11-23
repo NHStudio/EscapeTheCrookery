@@ -1,30 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 
-public class DropAmountUP : MonoBehaviour, ClickerBase {
-    public TMP_Text title;
-
-    public void Start() {
-        title.text = string.Format("Money drop: {0}/{1}", GetCurrentLevel(), GetMaxLevel());
+public class DropAmountUP : UpgradeImpl
+{
+    public override void ApplyUpgrade(PlayerStats playerStats)
+    {
+        playerStats.dropAmount += _level;
     }
 
-    public void Action() {
-        tmp.DropAmount += 1;
-    }
-    public int GetCurrentLevel() {
-        return tmp.DropAmount;
-    }
-    public int GetMaxLevel() {
+    public override int GetMaxLevel()
+    {
         return 5;
-    }
-
-    public void OnMouseDown() {
-        if (Wallet.Instance.Count() >= 5 && GetCurrentLevel() < GetMaxLevel()) {
-            Action();
-            title.text = string.Format("Money Drop: {0}/{1}", GetCurrentLevel(), GetMaxLevel());
-            Wallet.Instance.Dec(5);
-        }
     }
 }
