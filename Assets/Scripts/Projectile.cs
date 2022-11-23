@@ -10,6 +10,7 @@ public class Projectile : MonoBehaviour
     public float speed = 1.0f;
     private bool _hitsPlayer;
     private int _damage;
+    public float lifeSpan = 3.0f;
 
     public void HittingPlayer(bool hitsPlayer)
     {
@@ -25,8 +26,12 @@ public class Projectile : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerParameters>().attackDamage;
         }
     }
+
+    public void Start()
+    {
+        Destroy(gameObject, lifeSpan);
+    }
     
-    // Update is called once per frame
     public void Update()
     {
         var transformRef = transform;
@@ -56,6 +61,10 @@ public class Projectile : MonoBehaviour
                 }
             }
             Destroy(gameObject);
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), col.collider);
         }
     }
 }

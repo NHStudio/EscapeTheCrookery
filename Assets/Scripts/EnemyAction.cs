@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : BaseEnemyClass
+public class EnemyAction : BaseEnemyClass
 {
     
     //end
@@ -17,15 +17,14 @@ public class EnemyMove : BaseEnemyClass
         int sign = toRight ? -1 : 1;
         transform.position += new Vector3(sign * moveSpeed * Time.deltaTime, 0f, 0f);
         // make walking animation
-        _enemySR.flipX = toRight;
-
-        }
+        _enemySR.flipX = facingRight ? toRight : !toRight;
+    }
 
     private void Attack(bool toRight)
     {
         // Shoot
         _enemyGun.Attack(toRight);
-        _enemySR.flipX = toRight;
+        _enemySR.flipX = facingRight ? toRight : !toRight;
         // make animation for shooting
     }
     

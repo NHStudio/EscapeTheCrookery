@@ -10,6 +10,7 @@ public class BaseEnemyClass : MonoBehaviour, IDamageable
     public int hitPoints;
     public float attackRadius;
     public float followRadius;
+    public bool facingRight;
     protected bool _isDead = false;
     
     protected bool CheckFollowRadius(float playerPosition, float enemyPosition)
