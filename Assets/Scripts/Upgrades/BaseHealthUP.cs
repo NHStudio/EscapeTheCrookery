@@ -8,13 +8,16 @@ public class BaseHealthUP : MonoBehaviour, ClickerBase {
 
     public void Start() {
         title.text = string.Format("Player Health: {0}/{1}", GetCurrentLevel(), GetMaxLevel());
+        // PlayerParameters.Instance.hitPoints = 3;
     }
 
     public void Action() {
-        tmp.PlayerBaseHealth++;
+        tmp.PlayerBaseHealth++; // Local Tests
+        // PlayerParameters.Instance.hitPoints++;
     }
     public int GetCurrentLevel() {
-        return tmp.PlayerBaseHealth;
+        return tmp.PlayerBaseHealth; // Local Tests
+        // return PlayerParameters.Instance.hitPoints;
     }
     public int GetMaxLevel() {
         return 10;

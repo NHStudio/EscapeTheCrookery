@@ -8,13 +8,16 @@ public class DmgUP : MonoBehaviour, ClickerBase {
 
     public void Start() {
         title.text = string.Format("Damage: {0}/{1}", GetCurrentLevel(), GetMaxLevel());
+        // PlayerParameters.Instance.attackDamage = 1;
     }
 
     public void Action() {
-        tmp.BaseDamage++;
+        tmp.BaseDamage++; // Local Tests
+        // PlayerParameters.Instance.attackDamage++;
     }
     public int GetCurrentLevel() {
-        return tmp.BaseDamage;
+        return tmp.BaseDamage; // Local Tests
+        // return PlayerParameters.Instance.attackDamage;
     }
     public int GetMaxLevel() {
         return 5;
