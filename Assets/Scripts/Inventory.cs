@@ -1,18 +1,13 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour{
+public class Inventory {
 
-    public static Inventory Instance;
-    public List<GameObject> Weapons = new List<GameObject>(2);
-    public List<GameObject> Items = new List<GameObject>(1);
-
-    private void Awake() {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
-
+    public static readonly Inventory Instance = new();
+    public List<GameObject> Weapons = new(2);
+    public List<GameObject> Items = new(1);
+    
     public void Extend() {
         Items.Add(null);
     }
