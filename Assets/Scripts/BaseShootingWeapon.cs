@@ -12,11 +12,13 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
 
     protected float _nextShootTime = 0.0f;
 
-    protected PlayerController _playerController;
+    protected BaseActorController _actorController;
+    protected BaseActorParameters _actorParameters;
 
     void Start()
     {
-        _playerController = GetComponent<PlayerController>();
+        _actorController = GetComponent(typeof(BaseActorController)) as BaseActorController;
+        _actorParameters = GetComponent(typeof(BaseActorParameters)) as BaseActorParameters;
     }
 
     // Update is called once per frame
@@ -31,14 +33,16 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
 
     protected virtual void Fire()
     {
-        bool leftShoot = _playerController.Facing == PlayerController.PlayerFacing.Left;
+        bool leftShoot = _actorController.Facing == BaseActorController.ActorFacing.Left;
         
         Vector3 offset = new Vector3(leftShoot ? -projSpawnOffset : projSpawnOffset, 0.0f, 0.0f);
         Vector3 projSpawnPos = transform.position + offset;
 
         GameObject projectile = Instantiate(projectileType, projSpawnPos, Quaternion.identity);
         Projectile projComponent = projectile.GetComponent<Projectile>();
-        
+
+        projComponent.owner = gameObject;
+        projComponent.damage = _actorParameters.attackDamage;
         projComponent.direction = leftShoot ? Vector3.left : Vector3.right;
         projComponent.speed = projSpeed;
     }
