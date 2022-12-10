@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5678845142270460126}
   - component: {fileID: 1951460172771238602}
   - component: {fileID: 3913221535787252886}
+  - component: {fileID: 606526583460800340}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -190,7 +191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbe8130e6b3ba4489f24dae226af72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
   hitPoints: 10
 --- !u!114 &3913221535787252886
 MonoBehaviour:
@@ -210,6 +210,22 @@ MonoBehaviour:
   projSpeed: 5
   sideProjOffset: 0.5
   sideProjAngle: 30
+--- !u!114 &606526583460800340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727609721711553923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91adf9e3bbf24b62bd9783ca18d0a859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileType: {fileID: 1937123715403033525, guid: 6b6aac3de9f7dfd489f63fc5d7e18df5, type: 3}
+  shootingRate: 0.2
+  projSpawnOffset: 0.5
+  projSpeed: 5
 --- !u!1 &8239325037408565424
 GameObject:
   m_ObjectHideFlags: 0

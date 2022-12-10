@@ -44,7 +44,7 @@ public class Shotgun : BaseShootingWeapon
 
             projComponents[i].owner = gameObject;
             projComponents[i].direction = direction;
-            projComponents[i].damage = _actorParameters.attackDamage;
+            projComponents[i].damage = _actorParameters.AttackDamage;
         }
     }
 }

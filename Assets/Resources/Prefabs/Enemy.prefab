@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2208051040280037313}
   - component: {fileID: 5678845142270460126}
   - component: {fileID: 7262594434276121355}
-  - component: {fileID: 2381040653552534390}
+  - component: {fileID: 2176342325626623912}
   - component: {fileID: 3182564814117070079}
   m_Layer: 0
   m_Name: Enemy
@@ -180,7 +180,7 @@ MonoBehaviour:
   groundCheck: {fileID: 7724773782132650051}
   attackRadius: 2
   followRadius: 5
---- !u!114 &2381040653552534390
+--- !u!114 &2176342325626623912
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7727609721711553923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb42697081b46ff8dbb03f6f043472ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 91adf9e3bbf24b62bd9783ca18d0a859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: {fileID: 804515658602512745, guid: d461388131f2ed943b0aa6811afeebbf, type: 3}
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc52c370440d4131a3151c01c7b8d6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
   hitPoints: 10
+  attackDamage: 5
 --- !u!1 &8239325037408565424
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,4 +5,7 @@ using UnityEngine;
 
 public class BaseEnemyParameters : BaseActorParameters
 {
+    public int attackDamage;
+    
+    public override int AttackDamage => attackDamage;
 }

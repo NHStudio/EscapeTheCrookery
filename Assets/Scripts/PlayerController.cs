@@ -26,16 +26,29 @@ public class PlayerController : GroundedActorController
         
         base.Update();
         
-        if (_currWeapon is not null)
+        if (MainWeapon is not null)
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                _currWeapon.MainAttackStart();
+                MainWeapon.MainAttackStart();
             }
             
             if (Input.GetButtonUp("Fire1"))
             {
-                _currWeapon.MainAttackEnd();
+                MainWeapon.MainAttackEnd();
+            }
+        }
+        
+        if (SecondaryWeapon is not null)
+        {
+            if (Input.GetButtonDown("Fire2"))
+            {
+                SecondaryWeapon.MainAttackStart();
+            }
+            
+            if (Input.GetButtonUp("Fire2"))
+            {
+                SecondaryWeapon.MainAttackEnd();
             }
         }
     }

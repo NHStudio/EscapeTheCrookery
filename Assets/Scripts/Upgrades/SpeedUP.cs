@@ -3,7 +3,7 @@ public class SpeedUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats stats)
     {
-        stats.speed += 0.5f * _level;
+        stats.speed += 0.5f * level;
     }
 
     public override int GetMaxLevel()
@@ -13,6 +13,6 @@ public class SpeedUP : UpgradeBase
     
     public override int GetUpgradeCost()
     {
-        return 5 + _level * _level;
+        return 5 + level * level;
     }
 }
