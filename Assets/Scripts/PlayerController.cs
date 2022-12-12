@@ -70,4 +70,9 @@ public class PlayerController : GroundedActorController
             Jump();
         }
     }
+
+    public override bool TakeItem(ItemsMeta.Item item)
+    {
+        return InventoryManager.Instance.Store(item);
+    }
 }

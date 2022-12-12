@@ -21,6 +21,11 @@ public class BaseActorController : MonoBehaviour
     public IWeapon MainWeapon { get; set; }
     public IWeapon SecondaryWeapon { get; set; }
 
+    public virtual bool TakeItem(ItemsMeta.Item item)
+    {
+        return false;
+    }
+
     protected void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();

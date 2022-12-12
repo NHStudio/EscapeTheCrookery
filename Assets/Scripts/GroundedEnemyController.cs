@@ -5,7 +5,15 @@ using UnityEngine;
 public class GroundedEnemyController : GroundedActorController
 {
     private BaseEnemyParameters _parameters;
-    
+
+    public enum AIState
+    {
+        Idle,
+        Chase,
+        Attack,
+        Runaway
+    }
+
     // Player
     private Transform _playerTransform;
     private PlayerParameters _playerParameters;
