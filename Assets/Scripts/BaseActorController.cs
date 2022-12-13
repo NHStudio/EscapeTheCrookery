@@ -10,7 +10,7 @@ public class BaseActorController : MonoBehaviour
         Right = 1
     }
 
-    public ActorFacing Facing { get; protected set; } = ActorFacing.Right;
+    public ActorFacing Facing;
     
     protected static readonly int IsShootingAnim = Animator.StringToHash("IsShooting");
 
