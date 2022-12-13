@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,6 +14,15 @@ public class SceneSwitcher : MonoBehaviour
 {
     public SwitchDirection switchDirection = SwitchDirection.Right;
     private bool ignoreNextTriggerEnter;
+
+    private void Start()
+    {
+        // Hide the sprite and add portal particle effect
+        GetComponent<SpriteRenderer>().enabled = false;
+        var particleSystem = GetComponent<ParticleSystem>();
+        particleSystem.Play();
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
