@@ -1204,10 +1204,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8667806725426282067, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
+      propertyPath: knockback
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667806725426282067, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
       propertyPath: groundDistance
       value: 2.93
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8090475071287771296, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ff9656ef5f93c4de1b2b27c874485d8c, type: 3}
 --- !u!1 &1688059840
 GameObject:
@@ -1608,6 +1613,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2381040653552534390, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: shootingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2381040653552534390, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: projSpawnOffset
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3182564814117070079, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: attackDamage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678845142270460126, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.42666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678845142270460126, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.42666668
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262594434276121355, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: speed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262594434276121355, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: knockback
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262594434276121355, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: attackRadius
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727609721711553920, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8469d33fea3aa6c4387815d172e7bc77, type: 3}
     - target: {fileID: 7727609721711553923, guid: bc5c3b48f9220265fb0f3d5b8f94e5fe, type: 3}
       propertyPath: m_Name
       value: Enemy

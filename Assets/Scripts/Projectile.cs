@@ -11,13 +11,17 @@ public class Projectile : MonoBehaviour
     public int damage = 1;
     public GameObject owner;
     public float lifeSpan = 3.0f;
-
+    public BaseActorController.ActorFacing Facing;
+    
     private Collider2D _collider2D;
+    
 
     public void Start()
     {
         Destroy(gameObject, lifeSpan);
         _collider2D = gameObject.GetComponent<Collider2D>();
+        Facing = (direction.x > 0) ?
+            BaseActorController.ActorFacing.Right : BaseActorController.ActorFacing.Left;
     }
     
     public void Update()

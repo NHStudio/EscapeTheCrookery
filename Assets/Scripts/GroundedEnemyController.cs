@@ -51,6 +51,11 @@ public class GroundedEnemyController : GroundedActorController
         {
             bool isPlayerOnRight = _playerTransform.position.x < transform.position.x;
             Move(isPlayerOnRight ? -1 : 1);
+            bool isPlayerAbove = _playerTransform.position.y > transform.position.y + 2/*(jump height)*/;
+            if (isPlayerAbove)
+            {
+                Jump();
+            }
         }
         else
         {

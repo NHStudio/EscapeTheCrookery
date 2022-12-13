@@ -127,5 +127,6 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   speed: 1
   damage: 1
-  playerBullet: 1
+  owner: {fileID: 0}
   lifeSpan: 3
+  Facing: 0
