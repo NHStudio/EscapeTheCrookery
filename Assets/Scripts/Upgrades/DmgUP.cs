@@ -3,7 +3,7 @@ public class DmgUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
-        playerStats.baseDamage += _level;
+        playerStats.baseDamage += level;
     }
 
     public override int GetMaxLevel()
@@ -13,6 +13,6 @@ public class DmgUP : UpgradeBase
 
     public override int GetUpgradeCost()
     {
-        return 5 + _level * _level;
+        return 5 + level * level;
     }
 }

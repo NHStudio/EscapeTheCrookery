@@ -42,7 +42,7 @@ public class BaseShootingWeapon : MonoBehaviour, IWeapon
         Projectile projComponent = projectile.GetComponent<Projectile>();
 
         projComponent.owner = gameObject;
-        projComponent.damage = _actorParameters.attackDamage;
+        projComponent.damage = _actorParameters.AttackDamage;
         projComponent.direction = leftShoot ? Vector3.left : Vector3.right;
         projComponent.speed = projSpeed;
     }

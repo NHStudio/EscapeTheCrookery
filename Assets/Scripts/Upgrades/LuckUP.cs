@@ -3,7 +3,7 @@ public class LuckUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
-        playerStats.luck += 0.05f * _level;
+        playerStats.luck += 0.05f * level;
     }
 
     public override int GetMaxLevel()
@@ -13,6 +13,6 @@ public class LuckUP : UpgradeBase
     
     public override int GetUpgradeCost()
     {
-        return 5 + _level * _level;
+        return 5 + level * level;
     }
 }

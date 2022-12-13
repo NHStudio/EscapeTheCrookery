@@ -3,7 +3,7 @@ public class DropAmountUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
-        playerStats.dropAmount += _level;
+        playerStats.dropAmount += level;
     }
 
     public override int GetMaxLevel()
@@ -13,6 +13,6 @@ public class DropAmountUP : UpgradeBase
     
     public override int GetUpgradeCost()
     {
-        return 5 + _level * _level;
+        return 5 + level * level;
     }
 }

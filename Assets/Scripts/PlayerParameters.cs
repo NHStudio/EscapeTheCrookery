@@ -5,4 +5,5 @@ using UnityEngine;
 
 public class PlayerParameters : BaseActorParameters
 {
+    public override int AttackDamage => PlayerStatsManager.Instance.stats.baseDamage;
 }

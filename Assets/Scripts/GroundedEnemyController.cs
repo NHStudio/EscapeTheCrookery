@@ -5,7 +5,15 @@ using UnityEngine;
 public class GroundedEnemyController : GroundedActorController
 {
     private BaseEnemyParameters _parameters;
-    
+
+    public enum AIState
+    {
+        Idle,
+        Chase,
+        Attack,
+        Runaway
+    }
+
     // Player
     private Transform _playerTransform;
     private PlayerParameters _playerParameters;
@@ -26,6 +34,8 @@ public class GroundedEnemyController : GroundedActorController
         _playerTransform = _player.GetComponent<Transform>();
         _playerParameters = _player.GetComponent<PlayerParameters>();
         Debug.Assert(_playerParameters is not null);
+        
+        MainWeapon = GetComponent(typeof(IWeapon)) as IWeapon;
     }
     
     protected new void Update()
@@ -47,15 +57,15 @@ public class GroundedEnemyController : GroundedActorController
             Move(0);
         }
 
-        if (_currWeapon is not null)
+        if (MainWeapon is not null)
         {
             if (CheckAttackRadius(_playerTransform.position.x, transform.position.x))
             {
-                _currWeapon.MainAttackStart();
+                MainWeapon.MainAttackStart();
             }
             else
             {
-                _currWeapon.MainAttackEnd();
+                MainWeapon.MainAttackEnd();
             }   
         }
     }

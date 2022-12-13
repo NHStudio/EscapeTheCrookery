@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
-public class BaseActorParameters : MonoBehaviour, IDamageable
+public abstract class BaseActorParameters : MonoBehaviour, IDamageable
 {
-    public int attackDamage;
+    public abstract int AttackDamage { get; }
+    
     public int hitPoints;
     public bool Dead { get; set; } = false;
 
