@@ -6,9 +6,6 @@ using UnityEngine.Serialization;
 
 public class PlayerController : GroundedActorController
 {
-    public GameObject droppedItemPrefab;
-    public float dropDistance;
-    
     private float _turnSmoothVelocity;
     private Vector3 _velocity;
 
@@ -77,13 +74,5 @@ public class PlayerController : GroundedActorController
     public override bool TakeItem(ItemsMeta.Item item)
     {
         return InventoryManager.Instance.Store(item);
-    }
-
-    public void DropItem(ItemsMeta.Item item)
-    {
-        Vector3 dropOffset = new Vector3(Facing == ActorFacing.Right ? 1.0f : -1.0f, 0.0f, 0.0f) * dropDistance;
-        GameObject droppedItem = Instantiate(droppedItemPrefab, transform.position + dropOffset, Quaternion.identity);
-        DroppedItem itemComponent = droppedItem.GetComponent<DroppedItem>();
-        itemComponent.StoredItem = item;
     }
 }

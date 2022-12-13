@@ -12,6 +12,9 @@ public class BaseActorController : MonoBehaviour
 
     public ActorFacing Facing { get; protected set; } = ActorFacing.Right;
     
+    public GameObject droppedItemPrefab;
+    public float dropDistance;
+    
     protected static readonly int IsShootingAnim = Animator.StringToHash("IsShooting");
 
     protected Rigidbody2D _rb;
@@ -41,5 +44,13 @@ public class BaseActorController : MonoBehaviour
         }
         
         _spriteRenderer.flipX = Facing == ActorFacing.Left;
+    }
+    
+    public void DropItem(ItemsMeta.Item item)
+    {
+        Vector3 dropOffset = new Vector3(Facing == ActorFacing.Right ? 1.0f : -1.0f, 0.0f, 0.0f) * dropDistance;
+        GameObject droppedItem = Instantiate(droppedItemPrefab, transform.position + dropOffset, Quaternion.identity);
+        DroppedItem itemComponent = droppedItem.GetComponent<DroppedItem>();
+        itemComponent.StoredItem = item;
     }
 }
