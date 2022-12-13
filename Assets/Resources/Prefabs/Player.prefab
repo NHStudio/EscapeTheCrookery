@@ -124,9 +124,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd85bd2cbc4fd4d6788bcb1878c29f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Facing: 0
   speed: 800
   jumpForce: 500
   jumpMovementMultiplier: 0.4
+  knockback: 150
   groundCheckBox: {x: 1, y: 0.05}
   groundMask:
     serializedVersion: 2
@@ -207,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileType: {fileID: 1937123715403033525, guid: 6b6aac3de9f7dfd489f63fc5d7e18df5, type: 3}
-  shootingRate: 0.2
+  shootingRate: 0.7
   projSpawnOffset: 0.5
   projSpeed: 5
   sideProjOffset: 0.5

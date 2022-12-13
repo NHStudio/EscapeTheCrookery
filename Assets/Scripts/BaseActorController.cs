@@ -10,7 +10,7 @@ public class BaseActorController : MonoBehaviour
         Right = 1
     }
 
-    public ActorFacing Facing { get; protected set; } = ActorFacing.Right;
+    public ActorFacing Facing;
     
     public GameObject droppedItemPrefab;
     public float dropDistance;

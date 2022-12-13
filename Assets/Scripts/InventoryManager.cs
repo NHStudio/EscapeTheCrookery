@@ -5,15 +5,15 @@ using UnityEngine;
 public class InventoryManager : MonoBehaviour {
     public List<ItemsMeta.Item> Weapons;
     public List<ItemsMeta.Item> Items;
-
+    
     public GameObject inventoryUI;
-
+    
     public static InventoryManager Instance { get; private set; }
 
     public event Action OnInventoryLayoutChange;
 
     private bool _oneShot = true;
-
+    
     public void Awake()
     {
         Instance = this;
@@ -24,7 +24,7 @@ public class InventoryManager : MonoBehaviour {
             { ItemsMeta.Item.AidKit, AidKitItemDesc.Instance }
         };
     }
-    
+
     public void Update()
     {
         if (_oneShot)
@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour {
             inventoryUI.SetActive(false);
             _oneShot = false;
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Alpha1)) Use(0);
         if (Input.GetKeyDown(KeyCode.Alpha2)) Use(1);
         if (Input.GetKeyDown(KeyCode.Alpha3)) Use(2);
@@ -80,7 +80,7 @@ public class InventoryManager : MonoBehaviour {
 
         return false;
     }
-    
+
     public void PutWeapon(ItemsMeta.Item item, int slotIdx, bool notify = true)
     {
         Debug.Assert(slotIdx < Weapons.Count);

@@ -47,7 +47,7 @@ public class ShotgunItemDesc : BaseItemDesc
     public override void Unequip()
     {
         _shotgun.enabled = false;
-        
+
         switch (_slot)
         {
             case ItemsMeta.WeaponSlot.Main:
