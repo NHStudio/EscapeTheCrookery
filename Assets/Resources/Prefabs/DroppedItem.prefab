@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2135857286566698888}
   - component: {fileID: 7511291983958570441}
   - component: {fileID: 4059613989053657814}
+  - component: {fileID: 8520964416484955204}
   m_Layer: 0
   m_Name: DroppedItem
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2135857286566698891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.26, y: 0.78, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6512601487034693259}
@@ -134,6 +135,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.24}
   m_EdgeRadius: 0
+--- !u!114 &8520964416484955204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135857286566698891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0189fa606fdf44aa99adf3a5090ee44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storedItem: 3
 --- !u!1 &4999679628777971941
 GameObject:
   m_ObjectHideFlags: 0

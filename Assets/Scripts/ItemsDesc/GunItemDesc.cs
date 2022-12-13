@@ -46,7 +46,7 @@ public class GunItemDesc : BaseItemDesc
 
     public override void Unequip()
     {
-        _gun.enabled = true;
+        _gun.enabled = false;
         
         switch (_slot)
         {

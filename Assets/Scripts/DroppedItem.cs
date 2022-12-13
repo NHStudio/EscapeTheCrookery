@@ -9,8 +9,9 @@ public class DroppedItem : MonoBehaviour
         get => storedItem;
         set
         {
-            _spriteRenderer.sprite = ItemsMeta.ItemsDesc[storedItem].Icon;
             storedItem = value;
+            if (_spriteRenderer == null) return;
+            _spriteRenderer.sprite = ItemsMeta.ItemsDesc[storedItem].Icon;
         }
     }
 

@@ -132,6 +132,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheck: {fileID: 7724773782132650051}
+  droppedItemPrefab: {fileID: 2135857286566698891, guid: 040d337adf375aa1ca9f0b89944d6115, type: 3}
+  dropDistance: 1
 --- !u!50 &2208051040280037313
 Rigidbody2D:
   serializedVersion: 4
