@@ -28,12 +28,12 @@ public class PlayerController : GroundedActorController
         
         if (MainWeapon is not null)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetKeyDown(KeyCode.LeftControl))
             {
                 MainWeapon.MainAttackStart();
             }
             
-            if (Input.GetButtonUp("Fire1"))
+            if (Input.GetKeyUp(KeyCode.LeftControl))
             {
                 MainWeapon.MainAttackEnd();
             }
@@ -41,12 +41,12 @@ public class PlayerController : GroundedActorController
         
         if (SecondaryWeapon is not null)
         {
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetKeyDown(KeyCode.LeftAlt))
             {
                 SecondaryWeapon.MainAttackStart();
             }
             
-            if (Input.GetButtonUp("Fire2"))
+            if (Input.GetKeyUp(KeyCode.LeftAlt))
             {
                 SecondaryWeapon.MainAttackEnd();
             }

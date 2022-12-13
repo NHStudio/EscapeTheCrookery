@@ -23,5 +23,9 @@ public class HUDWeaponIcon : MonoBehaviour
         {
             _image.sprite = ItemsMeta.ItemsDesc[weapon].Icon;
         }
+        else
+        {
+            _image.sprite = null;
+        }
     }
 }

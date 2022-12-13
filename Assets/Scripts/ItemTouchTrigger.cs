@@ -13,7 +13,7 @@ public class ItemTouchTrigger : MonoBehaviour
         _parentItem = gameObject.GetComponentInParent<DroppedItem>();
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         BaseActorController actorController =
             col.gameObject.GetComponent(typeof(BaseActorController)) as BaseActorController;
