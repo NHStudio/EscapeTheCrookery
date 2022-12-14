@@ -8,10 +8,20 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
 {
     public abstract int AttackDamage { get; }
 
-    // Warning: set procedurally
-    public int HitPoints { get; set; }
+    [SerializeField]
+    [Header("Warning: Hit Points is set procedurally. Modify this property only while runtime for debugging purposes")]
+    private int hitPoints;
+    public int HitPoints
+    {
+        get => hitPoints;
+        set
+        {
+            hitPoints = value;
+            OnHealthChange?.Invoke(hitPoints);
+        }
+    }
     
-    public event Action<int> OnTakeDamage;
+    public event Action<int> OnHealthChange;
     
     private bool dead;
     
@@ -35,7 +45,6 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
     public virtual void TakeDamage(int damage)
     {
         HitPoints -= damage;
-        OnTakeDamage?.Invoke(HitPoints);
 
         if (HitPoints <= 0)
         {
