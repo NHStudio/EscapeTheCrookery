@@ -7,6 +7,7 @@ public class PlayerStats
     public int medicBaseHeal = 25;
     public int basePlayerDamage = 20;
     public int baseEnemyDamage = 20;
+    public int baseEnemyKillReward = 10;
     public float speed = 1;
     public float fireRate = 1;
     public float luck = 0.1f;

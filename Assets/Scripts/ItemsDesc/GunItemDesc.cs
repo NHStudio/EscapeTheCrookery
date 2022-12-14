@@ -4,7 +4,7 @@ using UnityEngine;
 public class GunItemDesc : BaseItemDesc
 {
     private static BaseItemDesc _instance;
-    public static BaseItemDesc Instance => _instance ??= new GunItemDesc();
+    public static BaseItemDesc Instance { get; private set; }
 
     private BaseShootingWeapon _gun;
     private ItemsMeta.WeaponSlot _slot;
@@ -15,8 +15,11 @@ public class GunItemDesc : BaseItemDesc
         IsWeapon = true;
         Icon = Resources.Load<Sprite>("Sprites/itemA");
         OneTimeUsable = false;
-        
-        _gun = _player.GetComponent<Gun>();
+    }
+    
+    public static BaseItemDesc RecreateInstance()
+    {
+        return Instance = new GunItemDesc();
     }
 
     public override void Use()
@@ -25,6 +28,7 @@ public class GunItemDesc : BaseItemDesc
 
     public override void Equip(ItemsMeta.WeaponSlot slot)
     {
+        _gun = _player.GetComponent<Gun>();
         // Assuming that there is no equipment in the slot
         _gun.enabled = true;
         _slot = slot;

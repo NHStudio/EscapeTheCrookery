@@ -3,13 +3,18 @@ using UnityEngine;
 public class AidKitItemDesc : BaseItemDesc
 {
     private static BaseItemDesc _instance;
-    public static BaseItemDesc Instance => _instance ??= new AidKitItemDesc();
+    public static BaseItemDesc Instance { get; private set; }
 
     protected AidKitItemDesc()
     {
         Name = "Aid Kit";
         Icon = Resources.Load<Sprite>("Sprites/MedicUp");
         OneTimeUsable = true;
+    }
+
+    public static BaseItemDesc RecreateInstance()
+    {
+        return Instance = new AidKitItemDesc();
     }
 
     public override void Use()

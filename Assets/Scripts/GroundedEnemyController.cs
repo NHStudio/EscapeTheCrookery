@@ -93,4 +93,9 @@ public class GroundedEnemyController : GroundedActorController
             BulletKnockback(col);
         }
     }
+    
+    public override void OnDeath()
+    {
+        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.baseEnemyKillReward);
+    }
 }

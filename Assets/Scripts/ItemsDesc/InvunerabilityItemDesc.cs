@@ -3,13 +3,18 @@ using UnityEngine;
 public class InvunerabilityItemDesc : BaseItemDesc
 {
     private static BaseItemDesc _instance;
-    public static BaseItemDesc Instance => _instance ??= new InvunerabilityItemDesc();
+    public static BaseItemDesc Instance { get; private set; }
 
     protected InvunerabilityItemDesc()
     {
         Name = "Temporary Invunerability";
         Icon = Resources.Load<Sprite>("Sprites/Invunerability");
         OneTimeUsable = true;
+    }
+    
+    public static BaseItemDesc RecreateInstance()
+    {
+        return Instance = new InvunerabilityItemDesc();
     }
 
     public override void Use()

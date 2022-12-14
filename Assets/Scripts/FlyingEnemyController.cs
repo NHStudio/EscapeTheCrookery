@@ -131,4 +131,9 @@ public class FlyingEnemyController : BaseActorController
             new Vector2(dir.x > 0 ? 1.0f : -1.0f, 1.0f).normalized;
         gameObject.GetComponent<Rigidbody2D>().AddForce(knockbackDir * knockback);
     }
+    
+    public override void OnDeath()
+    {
+        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.baseEnemyKillReward);
+    }
 }
