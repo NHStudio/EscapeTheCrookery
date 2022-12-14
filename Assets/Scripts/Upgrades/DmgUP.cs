@@ -3,7 +3,7 @@ public class DmgUP : UpgradeBase
 {
     public override void ApplyUpgrade(PlayerStats playerStats)
     {
-        playerStats.baseDamage += level;
+        playerStats.basePlayerDamage += level;
     }
 
     public override int GetMaxLevel()

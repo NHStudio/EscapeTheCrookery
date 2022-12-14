@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Profiling;
@@ -68,6 +69,21 @@ public class PlayerController : GroundedActorController
         if (Input.GetButton("Jump"))
         {
             Jump();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Bullet") && 
+            !col.gameObject.CompareTag(gameObject.tag))
+        {
+            BulletKnockback(col);
+        }
+        
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Parameters.TakeDamage(PlayerStatsManager.Instance.stats.basePlayerDamage);
+            HitKnockback(new Vector2(Facing == ActorFacing.Right ? 1.0f : -1.0f, 0.0f));
         }
     }
 

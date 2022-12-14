@@ -7,7 +7,9 @@ public class ItemsMeta
         Null = 0,
         Gun,
         Shotgun,
-        AidKit
+        AidKit,
+        Invunerability,
+        AttackIncrease
     };
 
     public enum WeaponSlot

@@ -21,7 +21,9 @@ public class InventoryManager : MonoBehaviour {
         {
             { ItemsMeta.Item.Gun, GunItemDesc.Instance },
             { ItemsMeta.Item.Shotgun, ShotgunItemDesc.Instance },
-            { ItemsMeta.Item.AidKit, AidKitItemDesc.Instance }
+            { ItemsMeta.Item.AidKit, AidKitItemDesc.Instance },
+            { ItemsMeta.Item.Invunerability, InvunerabilityItemDesc.Instance },
+            { ItemsMeta.Item.AttackIncrease, AttackIncreaseItemDesc.Instance }
         };
     }
 

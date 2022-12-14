@@ -3,8 +3,10 @@ using System.Collections.Generic;
 public class PlayerStats
 {
     public int playerBaseHealth = 3;
+    public int enemyBaseHealth = 3;
     public int medicBaseHeal = 3;
-    public int baseDamage = 1;
+    public int basePlayerDamage = 1;
+    public int baseEnemyDamage = 1;
     public float speed = 1;
     public float fireRate = 1;
     public float luck = 0.1f;

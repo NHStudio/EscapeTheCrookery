@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class AidKitItemDesc : BaseItemDesc
+public class InvunerabilityItemDesc : BaseItemDesc
 {
     private static BaseItemDesc _instance;
-    public static BaseItemDesc Instance => _instance ??= new AidKitItemDesc();
+    public static BaseItemDesc Instance => _instance ??= new InvunerabilityItemDesc();
 
-    protected AidKitItemDesc()
+    protected InvunerabilityItemDesc()
     {
-        Name = "Aid Kit";
-        Icon = Resources.Load<Sprite>("Sprites/MedicUp");
+        Name = "Temporary Invunerability";
+        Icon = Resources.Load<Sprite>("Sprites/Invunerability");
         OneTimeUsable = true;
     }
 
     public override void Use()
     {
-        _playerController.Parameters.HitPoints += PlayerStatsManager.Instance.stats.medicBaseHeal;
+        _playerController.Parameters.ApplyInvunerability();
     }
 
     public override void Equip(ItemsMeta.WeaponSlot slot)
