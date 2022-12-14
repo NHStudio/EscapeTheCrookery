@@ -27,9 +27,9 @@ public class PlayerParameters : BaseActorParameters
 
     private SpriteRenderer _spriteRenderer;
 
-    private new void Start()
+    private new void Awake()
     {
-        base.Start();
+        base.Awake();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         
         attackDamage = PlayerStatsManager.Instance.stats.basePlayerDamage;
@@ -60,14 +60,9 @@ public class PlayerParameters : BaseActorParameters
     public override void TakeDamage(int damage)
     {
         if (invunerable) return;
-        
-        HitPoints -= damage;
-        if (HitPoints <= 0)
-        {
-            Dead = true;
-        }
+        base.TakeDamage(damage);
     }
-
+    
     public void ApplyInvunerability()
     {
         invunerable = true;

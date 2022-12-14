@@ -10,9 +10,9 @@ public class BaseEnemyParameters : BaseActorParameters
     
     public override int AttackDamage => attackDamage;
 
-    private new void Start()
+    private new void Awake()
     {
-        base.Start();
+        base.Awake();
         attackDamage = PlayerStatsManager.Instance.stats.baseEnemyDamage;
         HitPoints = PlayerStatsManager.Instance.stats.enemyBaseHealth;
     }

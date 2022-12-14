@@ -7,12 +7,14 @@ using UnityEngine;
 public abstract class BaseActorParameters : MonoBehaviour, IDamageable
 {
     public abstract int AttackDamage { get; }
-    
+
     // Warning: set procedurally
     public int HitPoints { get; set; }
     
+    public event Action<int> OnTakeDamage;
+    
     private bool dead;
-
+    
     public bool Dead
     {
         get => dead;
@@ -25,7 +27,7 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
     
     protected BaseActorController _actorController;
 
-    protected void Start()
+    protected void Awake()
     {
         _actorController = GetComponent(typeof(BaseActorController)) as BaseActorController;
     }
@@ -33,6 +35,8 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
     public virtual void TakeDamage(int damage)
     {
         HitPoints -= damage;
+        OnTakeDamage?.Invoke(HitPoints);
+
         if (HitPoints <= 0)
         {
             Dead = true;
