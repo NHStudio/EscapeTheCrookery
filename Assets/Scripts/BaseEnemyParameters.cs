@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class BaseEnemyParameters : BaseActorParameters
 {
-    // Warning: set procedurally
+    [Header("Warning: Attack Damage is set procedurally. Modify this property only while runtime for debugging purposes")]
     public int attackDamage;
+
+    public float enemyKindDamageMultiplier = 1.0f;
     
-    public override int AttackDamage => attackDamage;
+    public override int AttackDamage => (int)(attackDamage * enemyKindDamageMultiplier);
 
     private new void Awake()
     {

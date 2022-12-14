@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2176342325626623912}
   - component: {fileID: 3182564814117070079}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyEvilTwin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8469d33fea3aa6c4387815d172e7bc77, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 01fe6c3d243ae4371a96ee4ab631952f, type: 3}
+  m_Color: {r: 0.5471698, g: 0.17292629, b: 0.17292629, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.42666668, y: 0.42666668}
+    oldSize: {x: 0.25, y: 0.25}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Facing: 0
+  droppedItemPrefab: {fileID: 0}
+  dropDistance: 0
   speed: 500
   jumpForce: 50
   jumpMovementMultiplier: 0.7
@@ -212,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 10
   attackDamage: 5
+  enemyKindDamageMultiplier: 1
 --- !u!1 &8239325037408565424
 GameObject:
   m_ObjectHideFlags: 0
