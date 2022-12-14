@@ -110,6 +110,14 @@ public class RoomController : MonoBehaviour
 
     private void OnBlackoutFadeIn()
     {
+        if (currentRoomIndex > 7)
+        {
+            // Load the upgrade scene:
+            UnityEngine.SceneManagement.SceneManager.LoadScene("UpgradeScreen");
+            return;
+        }
+        
+        
         BlackoutScript.instance.OnFadeIn -= OnBlackoutFadeIn;
         
         var switchDirection = activeSwitcher.switchDirection;
