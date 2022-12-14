@@ -43,7 +43,7 @@ public class RoomController : MonoBehaviour
     // The scale of the room:
     public Vector3 roomScale = new(0.3f, 0.3f, 0.3f);
     
-    public Vector2 spawnPoint = new(-10, 4);
+    public Vector3 spawnPoint = new(-15.5f, -5.6f, 0);
 
     // The current room:
     private GameObject currentRoom;
@@ -63,6 +63,8 @@ public class RoomController : MonoBehaviour
         {
             unvisitedRooms.Add(roomPrefabs[i]);
         }
+
+        player.transform.position = spawnPoint;
 
         InstantiateRoom();
     }
@@ -110,6 +112,14 @@ public class RoomController : MonoBehaviour
 
     private void OnBlackoutFadeIn()
     {
+        if (currentRoomIndex > 7)
+        {
+            // Load the upgrade scene:
+            UnityEngine.SceneManagement.SceneManager.LoadScene("UpgradeScreen");
+            return;
+        }
+        
+        
         BlackoutScript.instance.OnFadeIn -= OnBlackoutFadeIn;
         
         var switchDirection = activeSwitcher.switchDirection;
