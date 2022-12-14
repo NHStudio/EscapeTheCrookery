@@ -36,7 +36,9 @@ public class RoomController : MonoBehaviour
     private int currentRoomIndex = 0;
     
     // The scale of the room:
-    private Vector3 roomScale = new(0.3f, 0.3f, 0.3f);
+    public Vector3 roomScale = new(0.3f, 0.3f, 0.3f);
+    
+    public Vector2 spawnPoint = new(-10, 4);
 
     // The current room:
     private GameObject currentRoom;
@@ -48,9 +50,8 @@ public class RoomController : MonoBehaviour
     private void Start()
     {
         instance = this;
-        
-        // Create the first room
 
+        // Create the first room
         roomMap[currentRoomIndex] = roomPrefabs[0];
 
         InstantiateRoom();

@@ -19,7 +19,7 @@ public class MoneyLabel : MonoBehaviour
     
     private void OnMoneyChanged(int money)
     {
-        textMesh.text = "Money: " + money;
+        textMesh.text = money.ToString();
     }
     
     private void OnDestroy()
