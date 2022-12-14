@@ -30,6 +30,9 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
         get => dead;
         set
         {
+            if (dead) return;
+            dead = value;
+            if (!dead) return;
             _actorController.OnDeath();
             Destroy(gameObject);
         }

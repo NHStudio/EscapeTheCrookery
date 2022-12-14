@@ -1,6 +1,7 @@
+using System;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEngine;
+using UnityEngine;using UnityEngine.EventSystems;
 
 public class UpgradeButtonScript : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class UpgradeButtonScript : MonoBehaviour
         }
         else
         {
-            titleText.text = $"{upgrade.name} ({playerUpgrade.GetCurrentLevel()} / {playerUpgrade.GetMaxLevel()})";
+            titleText.text = $"{upgrade.name}\n({playerUpgrade.GetCurrentLevel()} / {playerUpgrade.GetMaxLevel()})";
         }
     }
 

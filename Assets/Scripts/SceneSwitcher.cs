@@ -39,14 +39,14 @@ public class SceneSwitcher : MonoBehaviour
         // Teleport the player to the bottom of the switcher
         // Find the bottom point of the opposite switcher:
         var switcherTransform = transform;
-        var bottomPoint = switcherTransform.position + switcherTransform.up * -0.5f;
+        // var bottomPoint = switcherTransform.position - switcherTransform.up * switcherTransform.localScale.y / 2;
         
         // Move the point to the middle of the player
         var playerTransform = player.transform;
-        var playerBottomPoint = bottomPoint + playerTransform.up * -0.5f;
+        // var playerBottomPoint = bottomPoint + playerTransform.up * playerTransform.localScale.y / 2;
         
         // Move the player to the bottom point
-        playerTransform.position = playerBottomPoint;
+        playerTransform.position = switcherTransform.transform.position;
         
         // Ignore the next trigger event
         ignoreNextTriggerEnter = true;

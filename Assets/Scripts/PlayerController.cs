@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Profiling;
+
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : GroundedActorController
 {
@@ -90,5 +87,21 @@ public class PlayerController : GroundedActorController
     public override bool TakeItem(ItemsMeta.Item item)
     {
         return InventoryManager.Instance.Store(item);
+    }
+
+    public override void OnDeath()
+    {
+        base.OnDeath();
+
+        BlackoutScript.instance.OnFadeIn += OnFadeIn;
+        BlackoutScript.instance.FadeIn();
+    }
+    
+    private void OnFadeIn()
+    {
+        BlackoutScript.instance.OnFadeIn -= OnFadeIn;
+        
+        // Reload the scene
+        SceneManager.LoadScene("Scenes/UpgradeScreen");
     }
 }
