@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -94,5 +95,10 @@ public class UIInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             currParent.UseItem();
         }
+    }
+
+    private void OnDestroy()
+    {
+        _itemNameLabel.text = "";
     }
 }
