@@ -84,4 +84,13 @@ public class GroundedEnemyController : GroundedActorController
     {
         return Mathf.Abs(playerPosition - enemyPosition) < attackRadius;
     }
+    
+    protected void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Player Bullet") && 
+            !col.gameObject.CompareTag(gameObject.tag))
+        {
+            BulletKnockback(col);
+        }
+    }
 }

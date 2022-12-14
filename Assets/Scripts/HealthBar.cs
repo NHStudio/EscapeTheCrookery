@@ -10,19 +10,19 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        playerParams.OnTakeDamage += UpdateHealthBar;
+        playerParams.OnHealthChange += UpdateHealthBar;
         healthBar = GetComponent<Slider>();
-        healthBar.maxValue = playerParams.maxHitPoints;
-        healthBar.value = playerParams.maxHitPoints;
+        healthBar.maxValue = playerParams.HitPoints;
+        healthBar.value = playerParams.HitPoints;
     }
     
     private void UpdateHealthBar(int health)
     {
-        healthBar.value = playerParams.hitPoints;
+        healthBar.value = playerParams.HitPoints;
     }
     
     private void OnDestroy()
     {
-        playerParams.OnTakeDamage -= UpdateHealthBar;
+        playerParams.OnHealthChange -= UpdateHealthBar;
     }
 }

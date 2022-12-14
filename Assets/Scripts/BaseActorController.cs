@@ -53,4 +53,6 @@ public class BaseActorController : MonoBehaviour
         DroppedItem itemComponent = droppedItem.GetComponent<DroppedItem>();
         itemComponent.StoredItem = item;
     }
+
+    public virtual void OnDeath() {}
 }

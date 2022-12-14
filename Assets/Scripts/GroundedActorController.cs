@@ -75,20 +75,22 @@ public class GroundedActorController : BaseActorController
         
         _rb.AddForce(jumpForce * Vector2.up);
     }
-    
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Bullet") && 
-            !col.gameObject.CompareTag(gameObject.tag))
-        {
-            
-            var bulletDir = col.gameObject.GetComponent<Projectile>().direction;
 
-            Vector2 knockbackDir =
-                new Vector2(bulletDir.x > 0 ? 1.0f : -1.0f, 1.0f).normalized;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(knockbackDir * knockback);
-            _animator.SetBool(GetHitAnim, true); 
-            _animator.Play("PlayerHit");
-        }
+    protected void BulletKnockback(Collision2D col)
+    {
+        var bulletDir = col.gameObject.GetComponent<Projectile>().direction;
+        HitKnockback(bulletDir);
+    }
+
+    protected void HitKnockback(Vector3 dir)
+    {
+        // Keep only right or left
+        dir = Vector3.Project(dir, Vector3.right).normalized;
+        
+        Vector2 knockbackDir =
+            new Vector2(dir.x > 0 ? 1.0f : -1.0f, 1.0f).normalized;
+        gameObject.GetComponent<Rigidbody2D>().AddForce(knockbackDir * knockback);
+        _animator.SetBool(GetHitAnim, true); 
+        _animator.Play("PlayerHit");
     }
 }

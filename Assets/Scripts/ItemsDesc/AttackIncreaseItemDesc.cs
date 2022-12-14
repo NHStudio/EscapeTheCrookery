@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class AidKitItemDesc : BaseItemDesc
+public class AttackIncreaseItemDesc : BaseItemDesc
 {
     private static BaseItemDesc _instance;
-    public static BaseItemDesc Instance => _instance ??= new AidKitItemDesc();
+    public static BaseItemDesc Instance => _instance ??= new AttackIncreaseItemDesc();
 
-    protected AidKitItemDesc()
+    protected AttackIncreaseItemDesc()
     {
-        Name = "Aid Kit";
-        Icon = Resources.Load<Sprite>("Sprites/MedicUp");
+        Name = "Temporary Attack Increase";
+        Icon = Resources.Load<Sprite>("Sprites/Invunerability");
         OneTimeUsable = true;
     }
 
     public override void Use()
     {
-        _playerController.Parameters.HitPoints += PlayerStatsManager.Instance.stats.medicBaseHeal;
+        _playerController.Parameters.ApplyAttackMultiplier();
     }
 
     public override void Equip(ItemsMeta.WeaponSlot slot)

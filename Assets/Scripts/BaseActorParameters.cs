@@ -8,20 +8,47 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
 {
     public abstract int AttackDamage { get; }
 
-    public int maxHitPoints;
-    public int hitPoints;
-    public event Action<int> OnTakeDamage;
+    [SerializeField]
+    [Header("Warning: Hit Points is set procedurally. Modify this property only while runtime for debugging purposes")]
+    private int hitPoints;
+    public int HitPoints
+    {
+        get => hitPoints;
+        set
+        {
+            hitPoints = value;
+            OnHealthChange?.Invoke(hitPoints);
+        }
+    }
     
-    public bool Dead { get; set; } = false;
+    public event Action<int> OnHealthChange;
+    
+    private bool dead;
+    
+    public bool Dead
+    {
+        get => dead;
+        set
+        {
+            _actorController.OnDeath();
+            Destroy(gameObject);
+        }
+    }
+    
+    protected BaseActorController _actorController;
+
+    protected void Awake()
+    {
+        _actorController = GetComponent(typeof(BaseActorController)) as BaseActorController;
+    }
 
     public virtual void TakeDamage(int damage)
     {
-        hitPoints -= damage;
-        
-        OnTakeDamage?.Invoke(hitPoints);
+        HitPoints -= damage;
 
-        if (hitPoints > 0) return;
-        Dead = true;
-        Destroy(gameObject);
+        if (HitPoints <= 0)
+        {
+            Dead = true;
+        }
     }
 }
