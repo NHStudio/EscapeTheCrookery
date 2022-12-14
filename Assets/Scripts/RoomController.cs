@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -76,6 +77,10 @@ public class RoomController : MonoBehaviour
     private void DestroyRoom()
     {
         if (!currentRoom) return;
+        foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(e);
+        }
         Destroy(currentRoom);
         currentRoom = null;
     }
