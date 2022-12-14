@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -36,6 +38,7 @@ public class UIInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     }
     
     private Image _image;
+    private TMP_Text _itemNameLabel;
 
     public void Start()
     {
@@ -44,6 +47,8 @@ public class UIInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         StoredItem = StoredItem;
 
         currParent = GetComponentInParent<UIInventorySlot>();
+
+        _itemNameLabel = GameObject.Find("ItemNameText").GetComponent<TMP_Text>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -75,11 +80,13 @@ public class UIInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     public void OnPointerEnter(PointerEventData eventData)
     {
         _image.color = Color.cyan;
+        _itemNameLabel.text = ItemsMeta.ItemsDesc[StoredItem].Name;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         _image.color = Color.white;
+        _itemNameLabel.text = "";
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -88,5 +95,10 @@ public class UIInventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         {
             currParent.UseItem();
         }
+    }
+
+    private void OnDestroy()
+    {
+        _itemNameLabel.text = "";
     }
 }

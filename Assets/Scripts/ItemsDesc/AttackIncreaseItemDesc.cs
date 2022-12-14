@@ -8,7 +8,7 @@ public class AttackIncreaseItemDesc : BaseItemDesc
     protected AttackIncreaseItemDesc()
     {
         Name = "Temporary Attack Increase";
-        Icon = Resources.Load<Sprite>("Sprites/Invunerability");
+        Icon = Resources.Load<Sprite>("Sprites/Attack Increase");
         OneTimeUsable = true;
     }
 
