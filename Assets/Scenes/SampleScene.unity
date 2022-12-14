@@ -2003,7 +2003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weapons: 0000000000000000
-  Items: 0000000000000000
+  Items: 0100000000000000
   inventoryUI: {fileID: 1704534089}
 --- !u!4 &1699609428
 Transform:

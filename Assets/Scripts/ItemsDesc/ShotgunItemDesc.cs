@@ -4,7 +4,7 @@ using UnityEngine;
 public class ShotgunItemDesc : BaseItemDesc
 {
     private static BaseItemDesc _instance;
-    public static BaseItemDesc Instance => _instance ??= new ShotgunItemDesc();
+    public static BaseItemDesc Instance { get; private set; }
 
     private Shotgun _shotgun;
     private ItemsMeta.WeaponSlot _slot;
@@ -17,6 +17,11 @@ public class ShotgunItemDesc : BaseItemDesc
         OneTimeUsable = false;
         
         _shotgun = _player.GetComponent<Shotgun>();
+    }
+    
+    public static BaseItemDesc RecreateInstance()
+    {
+        return Instance = new ShotgunItemDesc();
     }
 
     public override void Use()

@@ -93,4 +93,10 @@ public class GroundedEnemyController : GroundedActorController
             BulletKnockback(col);
         }
     }
+    
+    public override void OnDeath()
+    {
+        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.dropAmount);
+        DropItem((ItemsMeta.Item)new System.Random().Next(1, 5));
+    }
 }

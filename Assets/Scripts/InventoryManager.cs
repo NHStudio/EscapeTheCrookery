@@ -19,11 +19,11 @@ public class InventoryManager : MonoBehaviour {
         Instance = this;
         ItemsMeta.ItemsDesc = new()
         {
-            { ItemsMeta.Item.Gun, GunItemDesc.Instance },
-            { ItemsMeta.Item.Shotgun, ShotgunItemDesc.Instance },
-            { ItemsMeta.Item.AidKit, AidKitItemDesc.Instance },
-            { ItemsMeta.Item.Invunerability, InvunerabilityItemDesc.Instance },
-            { ItemsMeta.Item.AttackIncrease, AttackIncreaseItemDesc.Instance }
+            { ItemsMeta.Item.Gun, GunItemDesc.RecreateInstance() },
+            { ItemsMeta.Item.Shotgun, ShotgunItemDesc.RecreateInstance() },
+            { ItemsMeta.Item.AidKit, AidKitItemDesc.RecreateInstance() },
+            { ItemsMeta.Item.Invunerability, InvunerabilityItemDesc.RecreateInstance() },
+            { ItemsMeta.Item.AttackIncrease, AttackIncreaseItemDesc.RecreateInstance() }
         };
     }
 
