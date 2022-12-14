@@ -2151,7 +2151,7 @@ MonoBehaviour:
   - Prefabs/Room_14
   - Prefabs/Room_15
   roomScale: {x: 0.3, y: 0.3, z: 0.3}
-  spawnPoint: {x: -10, y: 4}
+  spawnPoint: {x: -15, y: -5, z: 0}
   player: {fileID: 154617191}
 --- !u!4 &1749519404
 Transform:
