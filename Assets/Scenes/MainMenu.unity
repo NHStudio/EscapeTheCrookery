@@ -267,8 +267,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 319140be08dfc9e49bb83935009ab389, type: 2}
+  m_sharedMaterial: {fileID: 7603226429625014870, guid: 319140be08dfc9e49bb83935009ab389, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -841,7 +841,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c27928e811f7b4b934d661b421e9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameSceneName: UpgradeScreen
+  IdleColor: {r: 0.21568628, g: 0.21568628, b: 0.33333334, a: 1}
+  HoverColor: {r: 0.30980393, g: 0.30980393, b: 0.43529412, a: 1}
+  PressedColor: {r: 0.43529412, g: 0.43529412, b: 0.56078434, a: 1}
 --- !u!1 &1205115501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,8 +1199,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 319140be08dfc9e49bb83935009ab389, type: 2}
+  m_sharedMaterial: {fileID: 7603226429625014870, guid: 319140be08dfc9e49bb83935009ab389, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
