@@ -28,12 +28,16 @@ public class RoomController : MonoBehaviour
         "Prefabs/Room_14",
         "Prefabs/Room_15"
     };
+    
+    private List<string> unvisitedRooms = new List<string>();
 
     // A map of room index to room prefab name:
     private Dictionary<int, string> roomMap = new();
 
     // The current room index:
     private int currentRoomIndex = 0;
+
+    private SceneSwitcher activeSwitcher = null;
     
     // The scale of the room:
     public Vector3 roomScale = new(0.3f, 0.3f, 0.3f);
@@ -54,14 +58,18 @@ public class RoomController : MonoBehaviour
         // Create the first room
         roomMap[currentRoomIndex] = roomPrefabs[0];
 
+        for (var i = 1; i < roomPrefabs.Length; i++)
+        {
+            unvisitedRooms.Add(roomPrefabs[i]);
+        }
+
         InstantiateRoom();
     }
 
     private void CreateRandomRoom()
     {
-        // Initialize random room for the currentRoomIndex, and put it in the roomMap:
-        // roomMap[currentRoomIndex] = roomPrefabs[Random.Range(0, roomPrefabs.Length)];
-        roomMap[currentRoomIndex] = roomPrefabs[currentRoomIndex];
+        roomMap[currentRoomIndex] = unvisitedRooms[Random.Range(0, unvisitedRooms.Count)];
+        unvisitedRooms.Remove(roomMap[currentRoomIndex]);
     }
 
     private void InstantiateRoom()
@@ -85,8 +93,21 @@ public class RoomController : MonoBehaviour
     {
         // If the player is hitting a SceneSwitcher, then we need to transition to the next room:
         if (hitCollider.gameObject != player) return;
+
+        hitCollider.enabled = false;
+        hitCollider.gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+        activeSwitcher = switcher;
         
-        var switchDirection = switcher.switchDirection;
+        BlackoutScript.instance.OnFadeIn += OnBlackoutFadeIn;
+        BlackoutScript.instance.FadeIn();
+    }
+
+    private void OnBlackoutFadeIn()
+    {
+        BlackoutScript.instance.OnFadeIn -= OnBlackoutFadeIn;
+        
+        var switchDirection = activeSwitcher.switchDirection;
         switch (switchDirection)
         {
             case SwitchDirection.Left:
@@ -123,5 +144,21 @@ public class RoomController : MonoBehaviour
         
         // Teleport the player to the opposite switcher:
         oppositeSwitcher.teleportPlayer(player);
+
+        var cameraComponent = Camera.main.GetComponent<CameraFollow>();
+        cameraComponent.teleportInstantly();
+        
+        // Fade out the blackout:
+        BlackoutScript.instance.OnFadeOut += OnBlackoutFadeOut;
+        BlackoutScript.instance.FadeOut();
+    }
+
+    private void OnBlackoutFadeOut()
+    {
+        BlackoutScript.instance.OnFadeOut -= OnBlackoutFadeOut;
+        
+        // Re-enable the collider and make the player dynamic again:
+        player.GetComponent<BoxCollider2D>().enabled = true;
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 }
