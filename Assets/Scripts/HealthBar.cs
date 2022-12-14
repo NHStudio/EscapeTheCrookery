@@ -10,14 +10,19 @@ public class HealthBar : MonoBehaviour
 
     private void Start()
     {
-        playerParams = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerParameters>();
+        playerParams.OnTakeDamage += UpdateHealthBar;
         healthBar = GetComponent<Slider>();
         healthBar.maxValue = playerParams.maxHitPoints;
         healthBar.value = playerParams.maxHitPoints;
     }
-
-    public void SetHealth(int hp)
+    
+    private void UpdateHealthBar(int health)
     {
-        healthBar.value = hp;
+        healthBar.value = playerParams.hitPoints;
+    }
+    
+    private void OnDestroy()
+    {
+        playerParams.OnTakeDamage -= UpdateHealthBar;
     }
 }

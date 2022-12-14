@@ -10,17 +10,18 @@ public abstract class BaseActorParameters : MonoBehaviour, IDamageable
 
     public int maxHitPoints;
     public int hitPoints;
-    public HealthBar healthBar;
+    public event Action<int> OnTakeDamage;
+    
     public bool Dead { get; set; } = false;
 
     public virtual void TakeDamage(int damage)
     {
         hitPoints -= damage;
-        healthBar.SetHealth(hitPoints);
-        if (hitPoints <= 0)
-        {
-            Dead = true;
-            GameObject.Destroy(gameObject);
-        }
+        
+        OnTakeDamage?.Invoke(hitPoints);
+
+        if (hitPoints > 0) return;
+        Dead = true;
+        Destroy(gameObject);
     }
 }
