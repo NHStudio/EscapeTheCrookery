@@ -96,6 +96,7 @@ public class GroundedEnemyController : GroundedActorController
     
     public override void OnDeath()
     {
-        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.baseEnemyKillReward);
+        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.dropAmount);
+        DropItem((ItemsMeta.Item)new System.Random().Next(1, 5));
     }
 }

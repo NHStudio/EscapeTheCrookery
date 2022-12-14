@@ -134,6 +134,7 @@ public class FlyingEnemyController : BaseActorController
     
     public override void OnDeath()
     {
-        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.baseEnemyKillReward);
+        DropItem((ItemsMeta.Item)new System.Random().Next(1, 5));
+        Wallet.Instance.Add(PlayerStatsManager.Instance.stats.dropAmount);
     }
 }
